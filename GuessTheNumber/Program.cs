@@ -17,7 +17,7 @@ namespace GuessTheNumber
             int steps = 0;
             Random randomNum = new Random();
             int winningNum = randomNum.Next(0, 10);
-            int guess = 0;
+            int guess = -1;
 
             Console.WriteLine("The Greatest Guess the Number Game of All Time.\nYour goal is to guess the number from 0 to 10.\nThe game will give you a hint if you fail to guess.");
 
