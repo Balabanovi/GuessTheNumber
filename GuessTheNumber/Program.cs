@@ -21,24 +21,32 @@ namespace GuessTheNumber
 
             Console.WriteLine("The Greatest Guess the Number Game of All Time.\nYour goal is to guess the number from 0 to 10.\nThe game will give you a hint if you fail to guess.");
 
-            while (guess != winningNum)
+            try
             {
-                if (steps > 0)
+                while (guess != winningNum)
                 {
-                    if (guess > winningNum)
+                    if (steps > 0)
                     {
-                        Console.WriteLine("Incorrect guess! Your number was too high! Try again.");
+                        if (guess > winningNum)
+                        {
+                            Console.WriteLine("Incorrect guess! Your number was too high! Try again.");
+                        }
+                        else if (guess < winningNum)
+                        {
+                            Console.WriteLine("Incorrect guess! Your number was too low! Try again.");
+                        }
                     }
-                    else if (guess < winningNum)
-                    {
-                        Console.WriteLine("Incorrect guess! Your number was too low! Try again.");
-                    }
+                    Console.Write("Guess the number: ");
+                    guess = Convert.ToInt32(Console.ReadLine());
+                    steps++;
                 }
-                Console.Write("Guess the number: ");
-                guess = Convert.ToInt32(Console.ReadLine());
-                steps++;
+                Console.WriteLine("You won the game!\nIt took you " + steps + " guess(es) to win this time.");
             }
-            Console.WriteLine("You won the game!\nIt took you " + steps + " guess(es) to win this time.");
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+
+            }
 
             Console.ReadLine();
         }
